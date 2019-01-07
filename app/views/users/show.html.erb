@@ -8,7 +8,9 @@
     <%= link_to 'Редактировать профиль', edit_user_path(@user) if current_user == @user%>
   </div>
 
-<h2 class="title-medium"> <%=questions_size(@questions)%> <%= declension(questions_size(@questions), "вопрос", "вопроса", "вопросов")%>
+<h2 class="title-medium">
+  <%=questions_size(@questions)%> <%= declension(questions_size(@questions),
+   "вопрос", "вопроса", "вопросов")%>
 </h2>
   <div class="user-image-div">
     <%= image_tag user_avatar(@user), class: 'user-image', alt: '[Фото]' %>
