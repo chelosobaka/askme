@@ -16,7 +16,7 @@ group :development, :test do
   gem 'byebug'
 end
 
-gem 'nokogiri'
+#gem 'nokogiri'
 
 group :development do
   gem 'web-console', '~> 2.0'
