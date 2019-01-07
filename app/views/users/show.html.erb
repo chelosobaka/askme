@@ -9,8 +9,7 @@
   </div>
 
 <h2 class="title-medium">
-  <%=questions_size(@questions)%> <%= declension(questions_size(@questions),
-   "вопрос", "вопроса", "вопросов")%>
+  <%= @questions.size %> <%= declension(@questions.size, "вопрос", "вопроса", "вопросов")%>
 </h2>
   <div class="user-image-div">
     <%= image_tag user_avatar(@user), class: 'user-image', alt: '[Фото]' %>

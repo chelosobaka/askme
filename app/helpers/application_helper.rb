@@ -30,14 +30,6 @@ module ApplicationHelper
     end
   end
 
-  def questions_size(questions)
-    if questions.nil?
-      return 0
-    else
-      questions.size
-    end
-  end
-
   def fa_icon(icon_class)
     content_tag 'span', '', class: "fa fa-#{icon_class}"
   end
