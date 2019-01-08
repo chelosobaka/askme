@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.10'
+gem 'rails', '>= 4.2.10'
 gem 'jquery-rails'
 gem 'uglifier'
+gem 'bootsnap'
+gem 'listen'
 
 group :production do
   gem 'pg'
