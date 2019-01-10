@@ -27,11 +27,11 @@ class UsersController < ApplicationController
   end
 
   def update
-      if @user.update(user_params)
-        redirect_to user_path(@user), notice: 'Пользователь успешно редактирован!'
-      else
-        render 'edit'
-      end
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: 'Пользователь успешно редактирован!'
+    else
+      render 'edit'
+    end
   end
 
   def show
@@ -41,8 +41,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-      @user.destroy
-      redirect_to root_path, notice: 'Пользователь удалён.'
+    @user.destroy
+    redirect_to root_path, notice: 'Пользователь удалён.'
   end
 
   private

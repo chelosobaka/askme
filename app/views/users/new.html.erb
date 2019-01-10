@@ -54,9 +54,9 @@
 
       <div class="form-field">
         <%= f.label :color, 'Цвет профиля', class: 'form-label' %>
-        <%= f.select :color,
-          options_for_select({'Синий' => '#0055e0', 'Красный' => '#e0003b', 'Зелёный' => '#005a55'}),
-          {}, {class: 'form-select button-dark'} %>
+        <%= f.select :color, options_for_select(User.color_hashes.map{|key, value| 
+          [key.capitalize, key.humanize.downcase]}),
+          {}, {class: 'form-select button-dark'}  %>
       </div>
 
       <div class="form-action">

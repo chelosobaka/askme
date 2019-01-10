@@ -43,12 +43,19 @@
         <%= f.password_field :password_confirmation, class: 'form-text-field' %>
       </div>
 
+      <div class="form-field">
+        <%= f.label :color, 'Цвет профиля', class: 'form-label' %>
+        <%= f.select :color, options_for_select(User.color_hashes.map{|key, value| 
+          [key.capitalize, key.humanize.downcase]}),
+          {}, {class: 'form-select button-dark'}  %>
+      </div>
+
       <div class="form-action buffer-top">
-        <%= f.submit 'Сохранить', class: 'button button-dark button-small' %>
+        <%= f.submit 'Сохранить', class: 'button button-green button-small' %>
       </div>
     <% end %>
       <div class="form-action buffer-top">
-        <%= link_to 'Удалить профиль', @user, method: :delete, data: { confirm: "Вы уверены?" }, class: 'button button-dark button-small' %>
+        <%= link_to 'Удалить профиль', @user, method: :delete, data: { confirm: "Вы уверены?" }, class: 'button button-red button-small' %>
       </div>
   </div>
 </div>

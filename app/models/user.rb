@@ -4,21 +4,26 @@ class User < ActiveRecord::Base
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
 
-  attr_accessor :password
+  attr_accessor :password, :color_hash
 
+  has_many :questions, dependent: :destroy
 
-  has_many :questions
+  enum color_hash: {blue: '#0055e0', green: '#005a55', red: '#e0003b'}
 
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
   validates :password, presence: true, on: :create
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :username, length: { maximum: 40 }, format: { with: /\A[a-zA-Z0-9_]+\Z/ }
-
+  validates :color, inclusion: { in: color_hashes }
   validates_confirmation_of :password
 
   before_validation :downcase_username
-  before_save :encrypt_password
+  before_save :encrypt_password, :convert_color
+
+  def convert_color
+    self.color = self.class.color_hashes[self.color]
+  end
 
   def downcase_username
     username.downcase!

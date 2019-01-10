@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to user_path(@question.user), notice: 'Вопрос задан.'
     else
-      render :edit
+      redirect_to user_path(@question.user), notice: 'Вопрос не задан'
     end
   end
 
