@@ -44,6 +44,11 @@
       </div>
 
       <div class="form-field">
+        <%= f.label :avatar_url, class: 'form-label' %>
+        <%= f.text_field :avatar_url, class: 'form-text-field' %>
+      </div>
+
+      <div class="form-field">
         <%= f.label :color, 'Цвет профиля', class: 'form-label' %>
         <%= f.select :color, options_for_select(User.color_hashes.map{|key, value| 
           [key.capitalize, key.humanize.downcase]}),
@@ -54,6 +59,7 @@
         <%= f.submit 'Сохранить', class: 'button button-green button-small' %>
       </div>
     <% end %>
+
       <div class="form-action buffer-top">
         <%= link_to 'Удалить профиль', @user, method: :delete, data: { confirm: "Вы уверены?" }, class: 'button button-red button-small' %>
       </div>
