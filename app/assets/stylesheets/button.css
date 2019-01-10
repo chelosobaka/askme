@@ -35,3 +35,7 @@
   padding: 7px 15px;
 }
 
+.delete-button{
+  display: table;
+  margin: 0 auto;
+}
