@@ -35,9 +35,8 @@ class UsersController < ApplicationController
   end
 
   def show
-   @questions = @user.questions.order(created_at: :desc)
-
-   @new_question = @user.questions.build
+    @questions = @user.questions.order(created_at: :desc)
+    @new_question = @user.questions.build
   end
 
   def destroy
